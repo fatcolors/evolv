@@ -111,20 +111,17 @@ export default function WatercraftParadigm() {
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-[#2d2f2f] min-h-[600px] md:min-h-[800px] lg:h-[995px] -mt-px"
     >
-      {/* ---- Background image with parallax ---- */}
-      <motion.div
-        className="absolute inset-0 h-[120%] w-full"
-        style={{ y: bgY }}
-      >
-        <Image
-          src="/images/watercraft-bg2.png"
-          alt=""
-          fill
-          className="object-cover opacity-60 mix-blend-luminosity"
-          sizes="100vw"
-          priority
+      {/* ---- Background video ---- */}
+      <div className="absolute inset-0 h-full w-full">
+        <video
+          src="/images/jetski-bw.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover"
         />
-      </motion.div>
+      </div>
 
       {/* ---- Content ---- */}
       <div className="relative z-10 mx-auto flex h-full max-w-[896px] flex-col items-center justify-center px-6 py-20 md:px-8 lg:py-0">
