@@ -164,7 +164,7 @@ export default function Hero() {
               loop
               muted
               playsInline
-              className="h-full w-full object-contain object-center lg:object-right scale-110 lg:scale-105"
+              className="h-full w-full bg-white object-contain object-center lg:object-right scale-110 lg:scale-105"
             >
               <source src="/images/hero-video.mp4" type="video/mp4" />
             </video>

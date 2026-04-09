@@ -122,7 +122,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <motion.a
               href="#waitlist"
-              className="hidden rounded-full px-6 py-2 font-outfit text-[12px] font-extrabold uppercase tracking-[1px] text-white lg:inline-block"
+              className="hidden h-[40px] items-center rounded-full px-6 font-outfit text-[12px] font-extrabold uppercase tracking-[1px] text-white lg:inline-flex"
               style={{ backgroundColor: "#1c1917" }}
               whileHover={{
                 scale: 1.05,
