@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(file public/logos/*.png)",
+      "Bash(file public/icons/*.png)",
+      "Bash(file public/images/*.png)",
+      "Bash(sed -i 's/\\\\/icons\\\\/\\\\\\([^\"]*\\\\\\)\\\\.png/\\\\/icons\\\\/\\\\1.svg/g' src/components/*.tsx)",
+      "Bash(sed -i 's/\\\\/logos\\\\/\\\\\\([^\"]*\\\\\\)\\\\.png/\\\\/logos\\\\/\\\\1.svg/g' src/components/*.tsx)",
+      "Bash(grep -oP '.{0,100}Max Speed.{0,200}' \"C:\\\\Users\\\\Ryzen\\\\.claude\\\\projects\\\\G--PROJEKTY-EVOLV\\\\b6bc7c5b-4027-42ed-aa3c-ae875b5821ee\\\\tool-results\\\\toolu_01ByRGPHrqxQR953CnYDdmEG.json\")",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/6df27d8d-5b69-4447-b408-a7af840e732d\" -o \"G:/PROJEKTY/EVOLV/public/icons/speed-icon.svg\")",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/1b66d25a-34a4-4836-b436-533323c83aff\" -o \"G:/PROJEKTY/EVOLV/public/icons/charge-icon.svg\")",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/69a5a887-a86c-48f8-8426-fece7218870b\" -o \"G:/PROJEKTY/EVOLV/public/icons/silent-drive-icon.svg\")",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/ce504e37-e537-4e61-95c0-d4de2594ec8d\" -o \"G:/PROJEKTY/EVOLV/public/icons/lucide-zap.svg\")",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/f329a90f-b80a-4873-a9cb-0b7fd9b3af50\" -o \"G:/PROJEKTY/EVOLV/public/icons/lucide-clock.svg\")",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/964d37e6-cde0-479d-9d99-470f267eba4e\" -o \"G:/PROJEKTY/EVOLV/public/images/battery-unit-new.png\")",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/e916fd75-c431-4997-badb-4530e5b05fdd\" -o \"G:/PROJEKTY/EVOLV/public/images/battery-unit.png\")"
+    ]
+  }
+}
