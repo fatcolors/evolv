@@ -72,16 +72,14 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          backgroundColor: scrolled
-            ? "rgba(255, 255, 255, 0.92)"
-            : "rgba(255, 255, 255, 0.7)",
+          backdropFilter: "none",
+          WebkitBackdropFilter: "none",
+          backgroundColor: "rgba(255, 255, 255, 1)",
           borderBottom: "1px solid #f5f5f4",
           boxShadow: scrolled
             ? "0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04)"
             : "none",
-          transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+          transition: "background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease",
         }}
       >
         <nav className="mx-auto flex h-[80px] max-w-[1280px] items-center justify-between px-8">

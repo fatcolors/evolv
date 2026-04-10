@@ -9,7 +9,7 @@ export default function ComfortSpeed() {
   const inView = useInView(wrapperRef, { once: true, amount: 0.2 });
 
   return (
-    <section className="relative overflow-hidden bg-white px-5 pt-20 pb-0 md:px-10 md:pt-28">
+    <section className="relative overflow-hidden bg-white px-5 pt-[200px] pb-0 md:px-10 md:pt-[200px]">
       {/* Huge heading — fades in first, spans the whole section */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
