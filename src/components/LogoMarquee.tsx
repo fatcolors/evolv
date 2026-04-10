@@ -48,6 +48,8 @@ export default function LogoMarquee() {
         <div className="animate-marquee flex w-max">
           <LogoStrip />
           <LogoStrip />
+          <LogoStrip />
+          <LogoStrip />
         </div>
       </div>
     </motion.section>

@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { label: "MODELS", href: "#models", active: true },
-  { label: "PERFORMANCE", href: "#performance", active: false },
-  { label: "TECH", href: "#tech", active: false },
-  { label: "HERITAGE", href: "#heritage", active: false },
+  { label: "MODELS", href: "/" },
+  { label: "PERFORMANCE", href: "/performance" },
+  { label: "TECH", href: "/tech" },
+  { label: "HERITAGE", href: "/heritage" },
 ];
 
 function LogoFull() {
@@ -38,6 +39,10 @@ function LogoFull() {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,35 +92,36 @@ export default function Navbar() {
 
           {/* Center: Nav links (desktop) */}
           <ul className="hidden items-center gap-[48px] lg:flex">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <motion.a
-                  href={link.href}
-                  className="group relative font-outfit text-[14px] uppercase"
-                  style={{
-                    fontWeight: link.active ? 800 : 600,
-                    color: link.active ? "#1c1917" : "#78716c",
-                    letterSpacing: "1px",
-                  }}
-                  whileHover={{ color: "#1c1917" }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {link.label}
-                  {/* Active underline */}
-                  {link.active && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1 left-0 h-[2px] w-full"
-                      style={{ backgroundColor: "#d0fc06" }}
-                    />
-                  )}
-                  {/* Hover underline (non-active links) */}
-                  {!link.active && (
-                    <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#d0fc06] transition-all duration-300 ease-out group-hover:w-full" />
-                  )}
-                </motion.a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <li key={link.label}>
+                  <motion.a
+                    href={link.href}
+                    className="group relative font-outfit text-[14px] uppercase"
+                    style={{
+                      fontWeight: active ? 800 : 600,
+                      color: active ? "#1c1917" : "#78716c",
+                      letterSpacing: "1px",
+                    }}
+                    whileHover={{ color: "#1c1917" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {link.label}
+                    {active && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute -bottom-1 left-0 h-[2px] w-full"
+                        style={{ backgroundColor: "#d0fc06" }}
+                      />
+                    )}
+                    {!active && (
+                      <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#d0fc06] transition-all duration-300 ease-out group-hover:w-full" />
+                    )}
+                  </motion.a>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Right: CTA button (desktop) + Hamburger (mobile) */}
