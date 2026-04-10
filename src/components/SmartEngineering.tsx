@@ -51,12 +51,12 @@ function StatCounter({
 }) {
   const count = useCountUp(value, 1.8, inView);
   return (
-    <div className="flex flex-col gap-1 w-[105px]">
+    <div className="flex flex-col gap-1 w-[130px]">
       <span className="font-jakarta text-[10px] font-extrabold uppercase tracking-[1px] text-[#666]">
         {label}
       </span>
-      <span className="font-outfit font-black leading-[36px] text-[#2d2f2f]">
-        <span className="text-[38px]">{count} </span>
+      <span className="font-outfit font-black leading-[36px] text-[#2d2f2f] whitespace-nowrap">
+        <span className="text-[38px] tabular-nums">{count} </span>
         <span className="text-[22px] text-[#7c7c7c]">{unit}</span>
       </span>
     </div>
@@ -146,7 +146,7 @@ function DbGauge({ inView }: { inView: boolean }) {
 
         {/* Center value */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-[8px]">
-          <span className="font-outfit text-[38px] font-black leading-[40px] text-[#2d2f2f] md:text-[44px]">
+          <span className="font-outfit text-[38px] font-black leading-[40px] text-[#2d2f2f] tabular-nums md:text-[44px]">
             {formatted}
           </span>
           <span className="font-outfit text-[17px] font-extrabold leading-[20px] text-[#666] md:text-[20px]">
@@ -250,124 +250,58 @@ export default function SmartEngineering() {
         {/*  BENTO GRID                                               */}
         {/* -------------------------------------------------------- */}
         <div className="flex flex-col gap-5 lg:gap-6">
-          {/* Top row: dark card + tall card */}
-          <div className="flex flex-col gap-5 lg:flex-row lg:gap-6">
-            {/* LEFT COLUMN: dark card + two bottom cards */}
-            <div className="flex flex-col gap-5 lg:gap-6">
-              {/* --- 1. Large dark card --- */}
-              <BentoCard
-                className="relative min-h-[400px] overflow-hidden rounded-[32px] p-8 md:min-h-[520px] md:rounded-[40px] md:p-10 lg:h-[584px] lg:w-[835px]"
-                delay={0}
-              >
-                {/* bg colour */}
-                <div className="absolute inset-0 bg-[#2d2f2f]" />
-                {/* carbon fibre texture */}
-                <div className="absolute inset-0 opacity-60">
-                  <Image
-                    src="/images/carbon-fiber.png"
-                    alt=""
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                {/* content */}
-                <div className="relative z-10 flex h-full flex-col justify-between">
-                  {/* badge */}
-                  <motion.span
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{
-                      duration: 2.4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                    className="inline-block w-fit rounded-full bg-[#d0fc06] px-5 py-2 font-jakarta text-[14px] font-extrabold uppercase tracking-[1px] text-[#2d2f2f] md:text-[16px]"
-                  >
-                    PEAK EFFICIENCY
-                  </motion.span>
-
-                  <div className="mt-auto">
-                    <h3 className="mb-3 font-outfit text-[26px] font-black uppercase leading-[1.1] tracking-[1.8px] text-white md:text-[32px] lg:text-[36px]">
-                      REDEFINING THE
-                      <br />
-                      WATERCRAFT PARADIGM.
-                    </h3>
-                    <p className="max-w-[480px] font-jakarta text-[14px] font-semibold leading-[1.6] text-white/80 md:text-[16px]">
-                      Precision-engineered hull geometry paired with an
-                      all-electric powertrain delivers unmatched acceleration,
-                      range, and control across every sea condition.
-                    </p>
-                  </div>
-                </div>
-              </BentoCard>
-
-              {/* --- 3. Two small cards below dark card --- */}
-              <div className="flex flex-col gap-5 sm:flex-row lg:gap-6">
-                {/* 3a. Lime card */}
-                <BentoCard
-                  className="flex min-h-[240px] flex-1 flex-col rounded-[32px] bg-[#d0fc06] p-7 md:min-h-[280px] md:rounded-[40px] md:p-8 lg:w-[401px] lg:flex-initial"
-                  delay={0.2}
-                >
-                  <div className="mb-4 flex items-start justify-between">
-                    <div className="flex h-[44px] w-[44px] items-center justify-center rounded-xl bg-[#2d2f2f]/10 md:h-[50px] md:w-[50px]">
-                      <Image
-                        src="/icons/nav-icon.svg"
-                        alt="Navigation"
-                        width={24}
-                        height={24}
-                      />
-                    </div>
-                    <div className="flex h-[44px] w-[44px] items-center justify-center rounded-xl bg-[#2d2f2f]/10 md:h-[50px] md:w-[50px]">
-                      <Image
-                        src="/icons/arrow-icon.svg"
-                        alt=""
-                        width={20}
-                        height={20}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="mt-auto">
-                    <h4 className="mb-2 font-outfit text-[18px] font-black uppercase tracking-[0.5px] text-[#2d2f2f] md:text-[20px]">
-                      NEURAL NAVIGATION
-                    </h4>
-                    <p className="font-jakarta text-[14px] font-medium leading-[1.5] text-[#56660d] md:text-[16px]">
-                      AI-assisted route planning adapts in real-time to tides,
-                      currents, and traffic.
-                    </p>
-                  </div>
-                </BentoCard>
-
-                {/* 3b. Gray card */}
-                <BentoCard
-                  className="flex min-h-[240px] flex-1 flex-col rounded-[32px] bg-[#f0f1f1] p-7 md:min-h-[280px] md:rounded-[40px] md:p-8 lg:w-[401px] lg:flex-initial"
-                  delay={0.3}
-                >
-                  <div className="mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-2xl bg-[#2d2f2f] md:h-[80px] md:w-[80px]">
-                    <Image
-                      src="/icons/carbon-icon.svg"
-                      alt="Carbon"
-                      width={32}
-                      height={32}
-                    />
-                  </div>
-
-                  <div className="mt-auto">
-                    <h4 className="mb-2 font-outfit text-[18px] font-black uppercase tracking-[0.5px] text-[#2d2f2f] md:text-[20px]">
-                      OCEAN-GRADE CARBON
-                    </h4>
-                    <p className="font-jakarta text-[14px] font-medium leading-[1.5] text-[#666] md:text-[16px]">
-                      Aerospace-derived carbon composites deliver extreme
-                      rigidity at minimal weight.
-                    </p>
-                  </div>
-                </BentoCard>
-              </div>
-            </div>
-
-            {/* --- 2. Right tall card --- */}
+          {/* Top row: dark card + tall card (equal height via flex stretch) */}
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-stretch lg:gap-6">
+            {/* --- 1. Large dark card --- */}
             <BentoCard
-              className="flex flex-col rounded-[32px] bg-[#e1e3e3] p-7 md:rounded-[40px] md:p-10 lg:h-[888px] lg:w-[493px]"
+              className="relative min-h-[400px] overflow-hidden rounded-[32px] p-8 md:min-h-[520px] md:rounded-[40px] md:p-10 lg:h-auto lg:min-h-[584px] lg:w-[835px]"
+              delay={0}
+            >
+              {/* bg colour */}
+              <div className="absolute inset-0 bg-[#2d2f2f]" />
+              {/* carbon fibre texture */}
+              <div className="absolute inset-0 opacity-60">
+                <Image
+                  src="/images/carbon-fiber.png"
+                  alt=""
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* content */}
+              <div className="relative z-10 flex h-full flex-col justify-between">
+                {/* badge */}
+                <motion.span
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{
+                    duration: 2.4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="inline-block w-fit rounded-full bg-[#d0fc06] px-5 py-2 font-jakarta text-[14px] font-extrabold uppercase tracking-[1px] text-[#2d2f2f] md:text-[16px]"
+                >
+                  PEAK EFFICIENCY
+                </motion.span>
+
+                <div className="mt-auto">
+                  <h3 className="mb-3 font-outfit text-[26px] font-black uppercase leading-[1.1] tracking-[1.8px] text-white md:text-[32px] lg:text-[36px]">
+                    REDEFINING THE
+                    <br />
+                    WATERCRAFT PARADIGM.
+                  </h3>
+                  <p className="max-w-[480px] font-jakarta text-[14px] font-semibold leading-[1.6] text-white/80 md:text-[16px]">
+                    Precision-engineered hull geometry paired with an
+                    all-electric powertrain delivers unmatched acceleration,
+                    range, and control across every sea condition.
+                  </p>
+                </div>
+              </div>
+            </BentoCard>
+
+            {/* --- 2. Right tall card (stretches to match dark card height) --- */}
+            <BentoCard
+              className="flex flex-col rounded-[32px] bg-[#e1e3e3] p-7 md:rounded-[40px] md:p-10 lg:h-auto lg:w-[493px]"
               delay={0.15}
             >
               <div className="mb-5">
@@ -395,6 +329,69 @@ export default function SmartEngineering() {
                   quality={95}
                   className="object-cover object-center"
                 />
+              </div>
+            </BentoCard>
+          </div>
+
+          {/* --- 3. Two small cards spanning full container width --- */}
+          <div className="flex flex-col gap-5 sm:flex-row lg:gap-6">
+            {/* 3a. Lime card */}
+            <BentoCard
+              className="flex min-h-[240px] flex-1 flex-col rounded-[32px] bg-[#d0fc06] p-7 md:min-h-[280px] md:rounded-[40px] md:p-8"
+              delay={0.2}
+            >
+              <div className="mb-4 flex items-start justify-between">
+                <div className="flex h-[44px] w-[44px] items-center justify-center rounded-xl bg-[#2d2f2f]/10 md:h-[50px] md:w-[50px]">
+                  <Image
+                    src="/icons/nav-icon.svg"
+                    alt="Navigation"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+                <div className="flex h-[44px] w-[44px] items-center justify-center rounded-xl bg-[#2d2f2f]/10 md:h-[50px] md:w-[50px]">
+                  <Image
+                    src="/icons/arrow-icon.svg"
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
+                </div>
+              </div>
+
+              <div className="mt-auto">
+                <h4 className="mb-2 font-outfit text-[18px] font-black uppercase tracking-[0.5px] text-[#2d2f2f] md:text-[20px]">
+                  NEURAL NAVIGATION
+                </h4>
+                <p className="font-jakarta text-[14px] font-medium leading-[1.5] text-[#56660d] md:text-[16px]">
+                  AI-assisted route planning adapts in real-time to tides,
+                  currents, and traffic.
+                </p>
+              </div>
+            </BentoCard>
+
+            {/* 3b. Gray card */}
+            <BentoCard
+              className="flex min-h-[240px] flex-1 flex-col rounded-[32px] bg-[#f0f1f1] p-7 md:min-h-[280px] md:rounded-[40px] md:p-8"
+              delay={0.3}
+            >
+              <div className="mb-4 flex h-[60px] w-[60px] items-center justify-center rounded-2xl bg-[#2d2f2f] md:h-[80px] md:w-[80px]">
+                <Image
+                  src="/icons/carbon-icon.svg"
+                  alt="Carbon"
+                  width={32}
+                  height={32}
+                />
+              </div>
+
+              <div className="mt-auto">
+                <h4 className="mb-2 font-outfit text-[18px] font-black uppercase tracking-[0.5px] text-[#2d2f2f] md:text-[20px]">
+                  OCEAN-GRADE CARBON
+                </h4>
+                <p className="font-jakarta text-[14px] font-medium leading-[1.5] text-[#666] md:text-[16px]">
+                  Aerospace-derived carbon composites deliver extreme
+                  rigidity at minimal weight.
+                </p>
               </div>
             </BentoCard>
           </div>
