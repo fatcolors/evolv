@@ -94,6 +94,23 @@ export default function Hydrodynamics() {
                 }}
               />
 
+              {/* Floating shadow — syncs inversely with image float */}
+              <motion.div
+                aria-hidden
+                initial={{ scaleX: 0.8, opacity: 0.35 }}
+                animate={{
+                  scaleX: [0.8, 1.1, 0.8],
+                  opacity: [0.35, 0.15, 0.35],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                style={{ filter: "blur(18px)" }}
+                className="pointer-events-none absolute left-1/2 bottom-[8%] z-[1] h-[24px] w-[45%] -translate-x-1/2 rounded-[50%] bg-black"
+              />
+
               {/* Scooter image */}
               <motion.div
                 initial={{ y: 20 }}
@@ -103,11 +120,11 @@ export default function Hydrodynamics() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute inset-0 flex items-center justify-center"
+                className="absolute inset-0 z-[2] flex items-center justify-center"
               >
                 <div className="relative h-[70%] w-[85%]">
                   <Image
-                    src="/images/scooter.png"
+                    src="/images/front.png"
                     alt="EVOLV watercraft hull"
                     fill
                     sizes="(max-width: 1024px) 100vw, 900px"

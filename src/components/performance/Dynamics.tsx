@@ -148,13 +148,23 @@ export default function Dynamics() {
 
   return (
     <section className="relative overflow-hidden bg-dark-deep px-5 py-20 md:px-10 md:py-32">
-      {/* Subtle grid */}
+      {/* Lime accent gradients */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
+        aria-hidden
+        className="pointer-events-none absolute -left-[10%] top-[-15%] h-[620px] w-[620px] rounded-full opacity-[0.18] blur-[140px]"
+        style={{ background: "#d0fc06" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-[8%] bottom-[-20%] h-[680px] w-[680px] rounded-full opacity-[0.12] blur-[160px]"
+        style={{ background: "#d0fc06" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+          background:
+            "radial-gradient(ellipse at 50% 100%, rgba(208,252,6,0.06) 0%, transparent 60%)",
         }}
       />
 

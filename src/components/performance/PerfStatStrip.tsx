@@ -117,7 +117,7 @@ function StatCell({
         <span className="font-outfit text-[64px] font-black leading-[0.9] tracking-[-2px] text-dark md:text-[80px] lg:text-[88px]">
           {displayValue}
         </span>
-        <span className="font-outfit text-[18px] font-bold text-[#888] md:text-[22px]">
+        <span className="rounded-[6px] bg-lime px-2 py-[3px] font-outfit text-[14px] font-black uppercase leading-none tracking-[0.5px] text-dark md:text-[16px]">
           {stat.unit}
         </span>
       </div>

@@ -80,64 +80,38 @@ function DbGauge({ inView }: { inView: boolean }) {
           className="h-full w-full"
         >
           <defs>
-            <filter id="filter0_d_5_782" x="76" y="-121.75" width="582.5" height="582.5" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-              <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-              <feMorphology radius="6" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_5_782"/>
-              <feOffset/>
-              <feGaussianBlur stdDeviation="10"/>
-              <feComposite in2="hardAlpha" operator="out"/>
-              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
-              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_5_782"/>
-              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_5_782" result="shape"/>
+            <filter id="ringShadow0" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" colorInterpolationFilters="sRGB">
+              <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#000000" floodOpacity="0.18"/>
             </filter>
-            <filter id="filter1_d_5_782" x="0" y="-197.75" width="734.5" height="734.5" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-              <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-              <feMorphology radius="6" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_5_782"/>
-              <feOffset/>
-              <feGaussianBlur stdDeviation="10"/>
-              <feComposite in2="hardAlpha" operator="out"/>
-              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.02 0"/>
-              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_5_782"/>
-              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_5_782" result="shape"/>
+            <filter id="ringShadow1" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" colorInterpolationFilters="sRGB">
+              <feDropShadow dx="0" dy="4" stdDeviation="10" floodColor="#000000" floodOpacity="0.14"/>
             </filter>
-            <filter id="filter2_d_5_782" x="142.75" y="-56" width="449" height="449" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-              <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-              <feMorphology radius="6" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_5_782"/>
-              <feOffset/>
-              <feGaussianBlur stdDeviation="10"/>
-              <feComposite in2="hardAlpha" operator="out"/>
-              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
-              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_5_782"/>
-              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_5_782" result="shape"/>
+            <filter id="ringShadow2" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" colorInterpolationFilters="sRGB">
+              <feDropShadow dx="0" dy="4" stdDeviation="7" floodColor="#000000" floodOpacity="0.22"/>
             </filter>
-            <filter id="filter3_d_5_782" x="198.75" y="1" width="337" height="337" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-              <feFlood floodOpacity="0" result="BackgroundImageFix"/>
-              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-              <feMorphology radius="6" operator="dilate" in="SourceAlpha" result="effect1_dropShadow_5_782"/>
-              <feOffset/>
-              <feGaussianBlur stdDeviation="10"/>
-              <feComposite in2="hardAlpha" operator="out"/>
-              <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"/>
-              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_5_782"/>
-              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_5_782" result="shape"/>
+            <filter id="ringShadow3" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" colorInterpolationFilters="sRGB">
+              <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#000000" floodOpacity="0.26"/>
             </filter>
           </defs>
-          {/* Concentric rings with drop shadows */}
-          <g filter="url(#filter0_d_5_782)">
-            <circle cx="367.25" cy="169.5" r="265" stroke="white" strokeOpacity="0.3" strokeWidth="0.5" shapeRendering="crispEdges"/>
-          </g>
-          <g filter="url(#filter1_d_5_782)">
-            <circle cx="367.25" cy="169.5" r="341" stroke="white" strokeOpacity="0.3" strokeWidth="0.5" shapeRendering="crispEdges"/>
-          </g>
-          <g filter="url(#filter2_d_5_782)">
-            <circle cx="367.25" cy="168.5" r="198" stroke="white" strokeOpacity="0.3" shapeRendering="crispEdges"/>
-          </g>
-          <g filter="url(#filter3_d_5_782)">
-            <circle cx="367.25" cy="169.5" r="142" stroke="white" strokeOpacity="0.3" shapeRendering="crispEdges"/>
-          </g>
+          {/* Concentric rings — all scale in sync, 3s loop */}
+          <motion.g
+            style={{ transformOrigin: "367.25px 169.5px" }}
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <g filter="url(#ringShadow3)">
+              <circle cx="367.25" cy="169.5" r="142" stroke="white" strokeOpacity="0.5" strokeWidth="1"/>
+            </g>
+            <g filter="url(#ringShadow2)">
+              <circle cx="367.25" cy="168.5" r="198" stroke="white" strokeOpacity="0.5" strokeWidth="1"/>
+            </g>
+            <g filter="url(#ringShadow0)">
+              <circle cx="367.25" cy="169.5" r="265" stroke="white" strokeOpacity="0.5" strokeWidth="1"/>
+            </g>
+            <g filter="url(#ringShadow1)">
+              <circle cx="367.25" cy="169.5" r="341" stroke="white" strokeOpacity="0.5" strokeWidth="1"/>
+            </g>
+          </motion.g>
           {/* Lime full circle */}
           <circle cx="367.25" cy="169" r="96" stroke="#D0FC06" strokeWidth="16"/>
           {/* Dark arc — animates like a chart drawing in */}
@@ -349,12 +323,12 @@ export default function SmartEngineering() {
               delay={0.2}
             >
               <div className="mb-4 flex items-start justify-between">
-                <div className="flex h-[44px] w-[44px] items-center justify-center rounded-xl bg-[#2d2f2f]/10 md:h-[50px] md:w-[50px]">
+                <div className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl bg-[#2d2f2f] md:h-[80px] md:w-[80px]">
                   <Image
-                    src="/icons/nav-icon.svg"
+                    src="/icons/nav-icon-lime.svg"
                     alt="Navigation"
-                    width={24}
-                    height={24}
+                    width={32}
+                    height={32}
                   />
                 </div>
                 <div className="flex h-[44px] w-[44px] items-center justify-center rounded-xl bg-[#2d2f2f]/10 md:h-[50px] md:w-[50px]">
