@@ -158,13 +158,13 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
           className="relative mt-10 w-full lg:mt-0 lg:absolute lg:right-0 lg:top-[60px] lg:h-full lg:w-[58%]"
         >
-          <div className="relative h-[400px] sm:h-[500px] lg:h-full w-full flex items-center justify-center lg:justify-end">
+          <div className="relative h-[400px] sm:h-[500px] lg:h-full w-full flex items-center justify-center lg:justify-end overflow-hidden bg-white">
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="h-full w-full bg-white object-contain object-center lg:object-right scale-110 lg:scale-105"
+              className="h-full w-full object-contain object-center lg:object-right scale-110 lg:scale-105"
             >
               <source src="/images/hero-video.mp4" type="video/mp4" />
             </video>

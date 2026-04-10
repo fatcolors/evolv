@@ -91,8 +91,6 @@ export default function BuiltForBeyond() {
   const jetskiInView = useInView(jetskiCardRef, { once: true, amount: 0.3 });
 
   const unitsRef = useRef<HTMLDivElement>(null);
-  const unitsInView = useInView(unitsRef, { once: true, amount: 0.5 });
-  const unitsValue = useCountUp(250, 1.8, unitsInView);
 
   return (
     <section className="bg-white px-5 py-16 md:px-8 md:py-28">
@@ -324,7 +322,7 @@ export default function BuiltForBeyond() {
                 className="flex flex-col items-center text-center"
               >
                 <span className="font-outfit text-[80px] font-black leading-none text-[#2d2f2f] md:text-[100px] lg:text-[128px]">
-                  {unitsValue}
+                  250
                 </span>
                 <span
                   className="mt-2 font-jakarta text-[14px] font-extrabold uppercase text-[#888] md:text-[16px]"
