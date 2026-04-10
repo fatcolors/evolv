@@ -27,7 +27,7 @@ Marketing landing page for **EVOLV INC.**, a fictional premium electric personal
 - **Styling:** Tailwind CSS v4 (`@theme inline` tokens in `globals.css`)
 - **Animations:** Framer Motion (scroll-triggered, hover, entrance, parallax)
 - **Fonts:** Plus Jakarta Sans + Outfit (via `next/font/google`), JetBrains Mono for code-style UI
-- **Deploy target:** Vercel
+- **Deploy target:** Vercel Deployment
 
 ## Architecture
 
