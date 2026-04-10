@@ -25,12 +25,12 @@ export default function ComfortSpeed() {
       {/* Image slides up over the heading, clipped by the wrapper */}
       <div
         ref={wrapperRef}
-        className="relative mx-auto -mt-[14vw] w-full max-w-[1236px] overflow-hidden rounded-t-[32px] md:rounded-t-[40px]"
+        className="relative mx-auto -mt-[14vw] w-full max-w-[1000px] overflow-hidden rounded-t-[32px] md:rounded-t-[40px]"
         style={{ maxHeight: "80vh" }}
       >
         <motion.div
-          initial={{ y: "100%", opacity: 0 }}
-          animate={inView ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
+          initial={{ y: "100%" }}
+          animate={inView ? { y: 0 } : { y: "100%" }}
           transition={{
             duration: 1.6,
             delay: 0.5,

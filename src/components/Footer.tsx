@@ -106,10 +106,19 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/5 flex flex-col sm:flex-row items-center justify-between py-8 gap-4">
-          <p className="font-jakarta text-[10px] text-[#57534e] tracking-[1px] uppercase">
-            &copy; 2024 EVOLV MARITIME. All rights reserved.
+          <p className="font-jakarta text-[10px] text-[#a8a29e] tracking-[1px] uppercase">
+            &copy; 2026{" "}
+            <a
+              href="https://fatcolors.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#d0fc06] transition-colors duration-200"
+            >
+              FATCOLORS.PL
+            </a>
+            {" "}. All rights reserved.
           </p>
-          <p className="font-jakarta text-[10px] text-[#57534e] tracking-[1px] uppercase">
+          <p className="font-jakarta text-[10px] text-[#a8a29e] tracking-[1px] uppercase">
             Built with Kinetic Precision
           </p>
         </div>

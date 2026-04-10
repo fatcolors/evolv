@@ -262,7 +262,7 @@ export default function SmartEngineering() {
               {/* carbon fibre texture */}
               <div className="absolute inset-0 opacity-60">
                 <Image
-                  src="/images/carbon-fiber.png"
+                  src="/images/peak-efficiency.png"
                   alt=""
                   fill
                   className="object-cover"
@@ -321,13 +321,13 @@ export default function SmartEngineering() {
                 environments.
               </p>
               <div className="relative mt-auto flex-1 min-h-[300px] overflow-hidden rounded-2xl lg:min-h-0">
-                <Image
-                  src="/images/battery-swap.png"
-                  alt="Swappable battery unit with lime green safety handle"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 493px"
-                  quality={95}
-                  className="object-cover object-center"
+                <video
+                  src="/images/battery-swap.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover object-center"
                 />
               </div>
             </BentoCard>
