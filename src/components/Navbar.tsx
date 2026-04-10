@@ -199,31 +199,35 @@ export default function Navbar() {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="flex flex-col items-center gap-10"
             >
-              {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.3, delay: 0.15 + index * 0.06 }}
-                  className="relative font-outfit text-[28px] uppercase"
-                  style={{
-                    fontWeight: link.active ? 800 : 600,
-                    color: link.active ? "#1c1917" : "#78716c",
-                    letterSpacing: "2px",
-                  }}
-                >
-                  {link.label}
-                  {link.active && (
-                    <span
-                      className="absolute -bottom-2 left-0 h-[3px] w-full"
-                      style={{ backgroundColor: "#d0fc06" }}
-                    />
-                  )}
-                </motion.a>
-              ))}
+{navLinks.map((link, index) => {
+  const active = isActive(link.href);
+
+  return (
+    <motion.a
+      key={link.label}
+      href={link.href}
+      onClick={() => setMobileMenuOpen(false)}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      transition={{ duration: 0.3, delay: 0.15 + index * 0.06 }}
+      className="relative font-outfit text-[28px] uppercase"
+      style={{
+        fontWeight: active ? 800 : 600,
+        color: active ? "#1c1917" : "#78716c",
+        letterSpacing: "2px",
+      }}
+    >
+      {link.label}
+      {active && (
+        <span
+          className="absolute -bottom-2 left-0 h-[3px] w-full"
+          style={{ backgroundColor: "#d0fc06" }}
+        />
+      )}
+    </motion.a>
+  );
+})}
 
               <motion.a
                 href="#waitlist"
