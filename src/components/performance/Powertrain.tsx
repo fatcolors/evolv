@@ -66,26 +66,12 @@ export default function Powertrain() {
 
         {/* BENTO GRID */}
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-12 lg:gap-6">
-          {/* Main dark card */}
+          {/* Main lime card */}
           <Card
-            className="relative col-span-1 overflow-hidden rounded-[32px] p-8 md:rounded-[40px] md:p-10 lg:col-span-8 lg:h-[560px] lg:p-14"
+            className="relative col-span-1 overflow-hidden rounded-[32px] bg-lime p-8 md:rounded-[40px] md:p-10 lg:col-span-8 lg:h-[560px] lg:p-14"
             delay={0}
+            hoverShadow="0 20px 50px rgba(208,252,6,0.35)"
           >
-            <div className="absolute inset-0 bg-dark" />
-            <div className="absolute inset-0 opacity-50">
-              <Image
-                src="/images/carbon-fiber.png"
-                alt=""
-                fill
-                className="object-cover"
-              />
-            </div>
-            {/* Lime radial */}
-            <div
-              className="pointer-events-none absolute -bottom-20 -right-20 h-[420px] w-[420px] rounded-full opacity-20 blur-[100px]"
-              style={{ background: "#d0fc06" }}
-            />
-
             <div className="relative z-10 flex h-full flex-col">
               <div className="flex items-start justify-between gap-6">
                 <div>
@@ -96,25 +82,25 @@ export default function Powertrain() {
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    className="inline-block rounded-full bg-lime px-5 py-2 font-jakarta text-[13px] font-extrabold uppercase tracking-[1px] text-dark md:text-[14px]"
+                    className="inline-block rounded-full bg-dark px-5 py-2 font-jakarta text-[13px] font-extrabold uppercase tracking-[1px] text-lime md:text-[14px]"
                   >
                     DUAL AXIAL-FLUX DRIVE
                   </motion.span>
-                  <h3 className="mt-5 max-w-[540px] font-outfit text-[28px] font-black uppercase leading-[1.05] tracking-[1px] text-white md:text-[36px] lg:text-[44px]">
+                  <h3 className="mt-5 max-w-[540px] font-outfit text-[28px] font-black uppercase leading-[1.05] tracking-[1px] text-dark md:text-[36px] lg:text-[44px]">
                     TWIN ROTORS.
                     <br />
                     ONE MISSION:
                     <br />
-                    <span className="text-lime">RAW THRUST.</span>
+                    <span className="text-dark/60">RAW THRUST.</span>
                   </h3>
                 </div>
 
                 {/* Spec chip */}
                 <div className="hidden flex-col items-end gap-1 md:flex">
-                  <span className="font-mono text-[10px] uppercase tracking-[2px] text-white/40">
+                  <span className="font-mono text-[10px] uppercase tracking-[2px] text-dark/50">
                     MOTOR ID
                   </span>
-                  <span className="font-mono text-[14px] font-bold tracking-[1px] text-lime">
+                  <span className="font-mono text-[14px] font-bold tracking-[1px] text-dark">
                     EVX—240D
                   </span>
                 </div>
@@ -134,12 +120,12 @@ export default function Powertrain() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
-                    className="border-l border-white/15 pl-4"
+                    className="border-l border-dark/20 pl-4"
                   >
-                    <div className="font-mono text-[10px] uppercase tracking-[2px] text-white/40">
+                    <div className="font-mono text-[10px] uppercase tracking-[2px] text-dark/50">
                       {s.label}
                     </div>
-                    <div className="mt-1 font-outfit text-[22px] font-black text-white md:text-[26px]">
+                    <div className="mt-1 font-outfit text-[22px] font-black text-dark md:text-[26px]">
                       {s.value}
                     </div>
                   </motion.div>
@@ -153,16 +139,6 @@ export default function Powertrain() {
             className="relative col-span-1 flex flex-col overflow-hidden rounded-[32px] bg-white p-8 md:rounded-[40px] md:p-10 lg:col-span-4 lg:h-[560px]"
             delay={0.15}
           >
-            <div className="mb-4">
-              <div className="flex h-[56px] w-[56px] items-center justify-center rounded-2xl bg-dark">
-                <Image
-                  src="/icons/bolt-icon.svg"
-                  alt=""
-                  width={28}
-                  height={28}
-                />
-              </div>
-            </div>
             <h3 className="font-outfit text-[22px] font-black uppercase tracking-[1px] text-dark md:text-[26px]">
               MODULAR POWER
               <br />
@@ -172,16 +148,16 @@ export default function Powertrain() {
               Swappable high-density lithium cells. Hot-swap ready.
               0—80% in 22 minutes under marine fast-charge.
             </p>
-            <div className="relative mt-6 flex-1 min-h-[240px] overflow-hidden rounded-2xl bg-gray-200 lg:min-h-0">
+            <div className="relative mt-6 flex-1 min-h-[280px] overflow-hidden rounded-2xl bg-gray-200 lg:min-h-0">
               <Image
                 src="/images/battery-unit-new.png"
                 alt="Modular power core"
                 fill
                 sizes="(max-width: 1024px) 100vw, 420px"
-                className="object-cover object-center"
+                className="scale-125 object-contain object-center"
               />
               {/* Overlay label */}
-              <div className="absolute bottom-4 left-4 flex flex-col gap-1 rounded-xl bg-white/90 px-3 py-2 backdrop-blur-sm">
+              <div className="absolute right-4 top-1/2 flex -translate-y-1/2 flex-col gap-1 rounded-xl bg-white/90 px-3 py-2 backdrop-blur-sm">
                 <span className="font-mono text-[9px] uppercase tracking-[1.5px] text-[#888]">
                   CAPACITY
                 </span>
@@ -192,29 +168,12 @@ export default function Powertrain() {
             </div>
           </Card>
 
-          {/* Feature row — 3 small cards */}
+          {/* Feature row — 2 small cards */}
           <Card
-            className="col-span-1 flex flex-col gap-5 rounded-[32px] bg-lime p-8 md:rounded-[40px] md:p-10 lg:col-span-4 lg:h-[280px]"
+            className="col-span-1 flex flex-col gap-5 rounded-[32px] bg-white p-8 md:rounded-[40px] md:p-10 lg:col-span-6 lg:h-[280px]"
             delay={0.2}
-            hoverShadow="0 20px 50px rgba(208,252,6,0.3)"
           >
-            <Image src="/icons/accel-icon.svg" alt="" width={44} height={44} />
-            <div className="mt-auto">
-              <h4 className="font-outfit text-[20px] font-black uppercase tracking-[0.5px] text-dark md:text-[22px]">
-                INSTANT TORQUE
-              </h4>
-              <p className="mt-2 font-jakarta text-[14px] font-medium leading-[1.5] text-[#56660d] md:text-[15px]">
-                Zero-millisecond throttle latency. Direct rotor engagement
-                without mechanical drag.
-              </p>
-            </div>
-          </Card>
-
-          <Card
-            className="col-span-1 flex flex-col gap-5 rounded-[32px] bg-white p-8 md:rounded-[40px] md:p-10 lg:col-span-4 lg:h-[280px]"
-            delay={0.3}
-          >
-            <div className="flex h-[56px] w-[56px] items-center justify-center rounded-2xl bg-gray-200">
+            <div className="flex h-[56px] w-[56px] items-center justify-center rounded-2xl bg-dark">
               <Image
                 src="/icons/modular-power-icon.svg"
                 alt=""
@@ -234,8 +193,8 @@ export default function Powertrain() {
           </Card>
 
           <Card
-            className="col-span-1 flex flex-col gap-5 rounded-[32px] bg-dark p-8 md:rounded-[40px] md:p-10 lg:col-span-4 lg:h-[280px]"
-            delay={0.4}
+            className="col-span-1 flex flex-col gap-5 rounded-[32px] bg-dark p-8 md:rounded-[40px] md:p-10 lg:col-span-6 lg:h-[280px]"
+            delay={0.3}
             hoverShadow="0 20px 50px rgba(0,0,0,0.25)"
           >
             <div className="flex h-[56px] w-[56px] items-center justify-center rounded-2xl bg-white/10">
