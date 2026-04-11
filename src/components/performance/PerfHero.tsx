@@ -15,7 +15,7 @@ export default function PerfHero() {
   return (
     <section
       ref={ref}
-      className="relative w-full overflow-hidden bg-dark-deep pt-[140px] pb-[80px] lg:pt-[180px] lg:pb-[120px]"
+      className="relative w-full overflow-hidden bg-dark-deep pt-[140px] pb-[160px] lg:pt-[180px] lg:pb-[240px]"
     >
       {/* Animated shader background (lime aurora) */}
       <ShaderBackground />

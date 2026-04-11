@@ -134,7 +134,19 @@ export default function PerfStatStrip() {
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="relative w-full bg-white py-20 md:py-28">
+    <section className="relative w-full bg-white pt-44 pb-20 md:pt-56 md:pb-28">
+      {/* Scooter straddling the hero / stat boundary */}
+      <div className="pointer-events-none absolute left-1/2 top-0 z-20 w-[240px] max-w-[60vw] -translate-x-1/2 -translate-y-[42%] md:w-[280px] lg:w-[390px]">
+        <motion.img
+          src="/images/front.png"
+          alt="EVOLV watercraft — front view"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full select-none"
+        />
+      </div>
       <div ref={ref} className="mx-auto max-w-[1360px] px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0 }}

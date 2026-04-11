@@ -8,7 +8,7 @@ const navLinks = [
   { label: "FEATURES", href: "/" },
   { label: "PERFORMANCE", href: "/performance" },
   { label: "TECH", href: "/tech" },
-  { label: "HERITAGE", href: "/heritage" },
+  { label: "EXPERIENCE", href: "/experience" },
 ];
 
 function LogoFull() {
