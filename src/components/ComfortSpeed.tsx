@@ -1,17 +1,37 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 export default function ComfortSpeed() {
+  const sectionRef = useRef<HTMLElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const inView = useInView(wrapperRef, { once: true, amount: 0.2 });
 
+  /* Scroll-linked effects across the section */
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Heading moves upward (out of the way) as you scroll through
+  const headingY = useTransform(scrollYProgress, [0, 1], ["15%", "-25%"]);
+  // Heading slightly fades as image takes over
+  const headingOpacity = useTransform(scrollYProgress, [0.3, 0.65], [1, 0.35]);
+
+  // Image zooms from slightly smaller up to its native size — never beyond,
+  // so the wrapper's overflow-hidden never crops the sides.
+  const imageScale = useTransform(scrollYProgress, [0.2, 0.7], [0.9, 1]);
+
   return (
-    <section className="relative overflow-hidden bg-white px-5 pt-[200px] pb-0 md:px-10 md:pt-[200px]">
-      {/* Huge heading — fades in first, spans the whole section */}
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-white px-5 pt-[200px] pb-0 md:px-10 md:pt-[200px]"
+    >
+      {/* Huge heading — parallax upward while fading slightly as image reveals */}
       <motion.h2
+        style={{ y: headingY, opacity: headingOpacity }}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -37,14 +57,16 @@ export default function ComfortSpeed() {
             ease: [0.16, 1, 0.3, 1],
           }}
         >
-          <Image
-            src="/images/comfort-speed-bg.png"
-            alt="EVOLV watercraft — comfort and speed"
-            width={1280}
-            height={744}
-            priority
-            className="block h-auto w-full object-cover object-top"
-          />
+          <motion.div style={{ scale: imageScale }} className="origin-top">
+            <Image
+              src="/images/comfort-speed-bg.png"
+              alt="EVOLV watercraft — comfort and speed"
+              width={1280}
+              height={744}
+              priority
+              className="block h-auto w-full object-cover object-top"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

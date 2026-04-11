@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 /* ------------------------------------------------------------------ */
@@ -90,11 +90,24 @@ export default function BuiltForBeyond() {
   const jetskiCardRef = useRef<HTMLDivElement>(null);
   const jetskiInView = useInView(jetskiCardRef, { once: true, amount: 0.3 });
 
+  /* Scroll-linked parallax on the scooter inside the acoustic card */
+  const { scrollYProgress: jetskiProgress } = useScroll({
+    target: jetskiCardRef,
+    offset: ["start end", "end start"],
+  });
+  const scooterScale = useTransform(jetskiProgress, [0, 0.5, 1], [0.95, 1.08, 1]);
+  const scooterX = useTransform(jetskiProgress, [0, 1], ["3%", "-6%"]);
+
   const unitsRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: unitsProgress } = useScroll({
+    target: unitsRef,
+    offset: ["start end", "end start"],
+  });
+  const unitsScale = useTransform(unitsProgress, [0, 0.5, 1], [0.85, 1.02, 0.95]);
 
   return (
-    <section className="bg-white px-5 py-16 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[1360px]">
+    <section className="flex min-h-screen items-center bg-white px-5 py-12 md:px-8 md:py-16">
+      <div className="mx-auto w-full max-w-[1360px]">
         {/* -------------------------------------------------------- */}
         {/*  HEADER ROW                                               */}
         {/* -------------------------------------------------------- */}
@@ -149,9 +162,9 @@ export default function BuiltForBeyond() {
               className="relative flex-[6] overflow-hidden rounded-[32px] border border-[#e7e8e8] bg-white shadow-sm md:rounded-[48px] lg:h-[498px]"
               delay={0}
             >
-              <div ref={jetskiCardRef} className="relative flex h-full min-h-[400px] md:min-h-0">
+              <div ref={jetskiCardRef} className="relative flex h-full flex-col lg:flex-row">
                 {/* Left: text content */}
-                <div className="relative z-10 flex w-[55%] shrink-0 flex-col justify-between p-8 md:p-10">
+                <div className="relative z-10 flex w-full shrink-0 flex-col justify-between p-8 md:p-10 lg:w-[55%]">
                   {/* Top */}
                   <div>
                     <span className="mb-4 inline-block rounded-full bg-[#d0fc06] px-5 py-2 font-jakarta text-[14px] font-extrabold uppercase tracking-[1px] text-[#2d2f2f]">
@@ -178,21 +191,26 @@ export default function BuiltForBeyond() {
                   </div>
                 </div>
 
-                {/* Right: jet ski image — slides in from right */}
+                {/* Right (desktop) / bottom (mobile): jet ski image */}
                 <motion.div
-                  className="absolute right-0 top-0 h-full w-[524px]"
+                  className="relative h-[300px] w-full sm:h-[360px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[524px]"
                   initial={{ x: 540 }}
                   animate={jetskiInView ? { x: 0 } : { x: 540 }}
                   transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
                 >
-                  <Image
-                    src="/images/scooter.png"
-                    alt="Jet ski"
-                    fill
-                    sizes="524px"
-                    quality={95}
-                    className="object-contain object-center"
-                  />
+                  <motion.div
+                    style={{ scale: scooterScale, x: scooterX }}
+                    className="relative h-full w-full"
+                  >
+                    <Image
+                      src="/images/scooter.png"
+                      alt="Jet ski"
+                      fill
+                      sizes="524px"
+                      quality={95}
+                      className="object-contain object-center"
+                    />
+                  </motion.div>
                 </motion.div>
               </div>
             </BentoCard>
@@ -317,8 +335,9 @@ export default function BuiltForBeyond() {
               className="flex h-[300px] flex-col items-center justify-center rounded-[32px] bg-[#e1e3e3] p-8 md:rounded-[48px] md:p-10"
               delay={0.4}
             >
-              <div
+              <motion.div
                 ref={unitsRef}
+                style={{ scale: unitsScale }}
                 className="flex flex-col items-center text-center"
               >
                 <span className="font-outfit text-[80px] font-black leading-none text-[#2d2f2f] md:text-[100px] lg:text-[128px]">
@@ -330,7 +349,7 @@ export default function BuiltForBeyond() {
                 >
                   UNITS IN BATCH 01
                 </span>
-              </div>
+              </motion.div>
             </BentoCard>
           </div>
         </div>

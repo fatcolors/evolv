@@ -18,9 +18,23 @@ export default function Home() {
         <LogoMarquee />
         <SmartEngineering />
         <ComfortSpeed />
-        <WatercraftParadigm />
-        <EngineeringSpecs />
-        <BuiltForBeyond />
+        {/* Sticky stacked reveal: each section locks at top, the next slides up over it.
+            Only enabled when viewport is ≥1024px wide AND ≥1200px tall — otherwise the
+            sections (which are taller than shorter viewports) would have their bottoms
+            clipped while pinned. Below that, sections flow normally. */}
+        <div className="lg:[@media(min-height:1200px)]:relative">
+          <div className="lg:[@media(min-height:1200px)]:sticky lg:[@media(min-height:1200px)]:top-0 lg:[@media(min-height:1200px)]:z-10">
+            <WatercraftParadigm />
+          </div>
+          <div className="lg:[@media(min-height:1200px)]:sticky lg:[@media(min-height:1200px)]:top-0 lg:[@media(min-height:1200px)]:z-20">
+            <EngineeringSpecs />
+          </div>
+          <div className="lg:[@media(min-height:1200px)]:sticky lg:[@media(min-height:1200px)]:top-0 lg:[@media(min-height:1200px)]:z-30">
+            <BuiltForBeyond />
+          </div>
+          {/* Spacer that gives the last sticky child its own sticky range */}
+          <div className="hidden h-screen lg:[@media(min-height:1200px)]:block" aria-hidden />
+        </div>
         <Newsletter />
       </main>
       <Footer />

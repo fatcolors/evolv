@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 /* ------------------------------------------------------------------ */
 /*  Animated counter – counts from 0 to `value` over `duration` ms    */
@@ -46,10 +46,24 @@ function AnimatedNumber({
 /*  Hero Component                                                    */
 /* ------------------------------------------------------------------ */
 export default function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
+  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+  const statsCardY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
+  const acousticsCardY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
   return (
-    <section className="relative w-full bg-white overflow-hidden pt-[100px] pb-[60px] lg:pt-[81px] lg:pb-0 lg:h-[830px]">
+    <section ref={heroRef} className="relative w-full bg-white overflow-hidden pt-[100px] pb-[60px] lg:pt-[81px] lg:pb-0 lg:h-[830px]">
       {/* ---- content grid ---- */}
-      <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col lg:flex-row items-start">
+      <motion.div
+        style={{ y: contentY, scale: contentScale, opacity: contentOpacity }}
+        className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col lg:flex-row items-start"
+      >
         {/* ========== LEFT COLUMN ========== */}
         <div className="flex flex-col justify-center px-6 sm:px-10 lg:pl-28 lg:pr-0 lg:pt-[100px] w-full lg:w-[60%] shrink-0 relative z-10">
           {/* Badge */}
@@ -172,10 +186,13 @@ export default function Hero() {
 
           {/* --- Stats card (vertical, with icon circles) --- */}
           <motion.div
+            style={{ y: statsCardY }}
+            className="absolute right-[12%] top-[16%] z-20 hidden lg:block"
+          >
+          <motion.div
             initial={{ opacity: 0, x: 80 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 1, ease: "easeOut" }}
-            className="absolute right-[12%] top-[16%] z-20 hidden lg:block"
           >
             <div className="flex flex-col gap-5 rounded-[40px] border border-white/5 bg-dark p-[29px] backdrop-blur-[6px]">
               {/* Max Speed */}
@@ -232,13 +249,17 @@ export default function Hero() {
               </div>
             </div>
           </motion.div>
+          </motion.div>
 
           {/* --- Acoustics glass card (overlaying jet ski) --- */}
+          <motion.div
+            style={{ y: acousticsCardY }}
+            className="absolute bottom-[28%] left-[12%] z-20 hidden lg:block"
+          >
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.2, ease: "easeOut" }}
-            className="absolute bottom-[28%] left-[12%] z-20 hidden lg:block"
           >
             <div className="flex items-center gap-4 rounded-[16px] border border-white/20 bg-[rgba(255,255,255,0.4)] p-[17px] shadow-[0_28px_28px_rgba(0,0,0,0.1)] backdrop-blur-[10px]">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-lime">
@@ -259,8 +280,9 @@ export default function Hero() {
               </div>
             </div>
           </motion.div>
+          </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

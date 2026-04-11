@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 /* ------------------------------------------------------------------ */
@@ -189,6 +189,15 @@ export default function SmartEngineering() {
   const gaugeRef = useRef<HTMLDivElement>(null);
   const gaugeInView = useInView(gaugeRef, { once: true, amount: 0.5 });
 
+  /* Scroll-linked parallax on the dark hero card background */
+  const darkCardRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: darkCardProgress } = useScroll({
+    target: darkCardRef,
+    offset: ["start end", "end start"],
+  });
+  const darkCardBgY = useTransform(darkCardProgress, [0, 1], ["-12%", "12%"]);
+  const darkCardBgScale = useTransform(darkCardProgress, [0, 0.5, 1], [1.15, 1.05, 1.15]);
+
   return (
     <section
       ref={sectionRef}
@@ -239,16 +248,21 @@ export default function SmartEngineering() {
               className="relative min-h-[400px] overflow-hidden rounded-[32px] p-8 md:min-h-[520px] md:rounded-[40px] md:p-10 lg:h-auto lg:min-h-[584px] lg:w-[835px]"
               delay={0}
             >
-              {/* bg colour */}
-              <div className="absolute inset-0 bg-[#2d2f2f]" />
-              {/* carbon fibre texture */}
-              <div className="absolute inset-0 opacity-60">
-                <Image
-                  src="/images/peak-efficiency.png"
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
+              <div ref={darkCardRef} className="absolute inset-0">
+                {/* bg colour */}
+                <div className="absolute inset-0 bg-[#2d2f2f]" />
+                {/* carbon fibre texture with scroll-linked parallax + subtle zoom */}
+                <motion.div
+                  style={{ y: darkCardBgY, scale: darkCardBgScale }}
+                  className="absolute inset-0 opacity-60"
+                >
+                  <Image
+                    src="/images/peak-efficiency.png"
+                    alt=""
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
               </div>
 
               {/* content */}

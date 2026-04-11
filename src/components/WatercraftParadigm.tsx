@@ -104,15 +104,21 @@ export default function WatercraftParadigm() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1.05, 1.15]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+  const contentScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.96, 1, 0.96]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#2d2f2f] min-h-[600px] md:min-h-[800px] lg:h-[995px] -mt-px"
+      className="relative w-full overflow-hidden bg-[#2d2f2f] min-h-screen -mt-px"
     >
-      {/* ---- Background video ---- */}
-      <div className="absolute inset-0 h-full w-full">
+      {/* ---- Background video with scroll-linked parallax + zoom ---- */}
+      <motion.div
+        style={{ y: bgY, scale: bgScale }}
+        className="absolute inset-0 h-full w-full"
+      >
         <video
           src="/images/jetski-bw.mp4"
           autoPlay
@@ -121,10 +127,13 @@ export default function WatercraftParadigm() {
           playsInline
           className="h-full w-full object-cover"
         />
-      </div>
+      </motion.div>
 
       {/* ---- Content ---- */}
-      <div className="relative z-10 mx-auto flex h-full max-w-[896px] flex-col items-center justify-center px-6 py-20 md:px-8 lg:py-0">
+      <motion.div
+        style={{ y: contentY, scale: contentScale }}
+        className="relative z-10 mx-auto flex h-full max-w-[896px] flex-col items-center justify-center px-6 py-20 md:px-8 lg:py-0"
+      >
         {/* Label */}
         <motion.p
           variants={labelVariants}
@@ -177,7 +186,7 @@ export default function WatercraftParadigm() {
             floatDuration={3.5}
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

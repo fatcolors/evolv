@@ -118,7 +118,7 @@ export default function EngineeringSpecs() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#1a1a1a] px-5 py-10 md:px-[42px] md:py-[42px]"
+      className="relative flex min-h-screen items-center bg-[#1a1a1a] px-5 py-10 md:px-[42px] md:py-[42px]"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
