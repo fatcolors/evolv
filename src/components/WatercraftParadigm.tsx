@@ -132,7 +132,7 @@ export default function WatercraftParadigm() {
       {/* ---- Content ---- */}
       <motion.div
         style={{ y: contentY, scale: contentScale }}
-        className="relative z-10 mx-auto flex h-full max-w-[896px] flex-col items-center justify-center px-6 py-20 md:px-8 lg:py-0"
+        className="relative z-10 mx-auto flex h-full max-w-[896px] flex-col items-center justify-center px-6 pb-20 pt-[140px] md:px-8 md:pt-[160px] lg:pb-16 lg:pt-[120px]"
       >
         {/* Label */}
         <motion.p
