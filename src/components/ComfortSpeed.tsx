@@ -20,10 +20,6 @@ export default function ComfortSpeed() {
   // Heading slightly fades as image takes over
   const headingOpacity = useTransform(scrollYProgress, [0.3, 0.65], [1, 0.35]);
 
-  // Image zooms from slightly smaller up to its native size — never beyond,
-  // so the wrapper's overflow-hidden never crops the sides.
-  const imageScale = useTransform(scrollYProgress, [0.2, 0.7], [0.9, 1]);
-
   return (
     <section
       ref={sectionRef}
@@ -46,7 +42,6 @@ export default function ComfortSpeed() {
       <div
         ref={wrapperRef}
         className="relative mx-auto -mt-[14vw] w-full max-w-[1000px] overflow-hidden rounded-t-[32px] md:rounded-t-[40px]"
-        style={{ maxHeight: "80vh" }}
       >
         <motion.div
           initial={{ y: "100%" }}
@@ -57,16 +52,14 @@ export default function ComfortSpeed() {
             ease: [0.16, 1, 0.3, 1],
           }}
         >
-          <motion.div style={{ scale: imageScale }} className="origin-top">
-            <Image
-              src="/images/comfort-speed-bg.png"
-              alt="EVOLV watercraft — comfort and speed"
-              width={1280}
-              height={744}
-              priority
-              className="block h-auto w-full object-cover object-top"
-            />
-          </motion.div>
+          <Image
+            src="/images/comfort-speed-bg.png"
+            alt="EVOLV watercraft — comfort and speed"
+            width={1280}
+            height={744}
+            priority
+            className="block h-auto w-full object-cover object-top"
+          />
         </motion.div>
       </div>
     </section>

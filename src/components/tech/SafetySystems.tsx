@@ -40,17 +40,7 @@ const systems = [
 
 export default function SafetySystems() {
   return (
-    <section className="relative overflow-hidden bg-dark px-5 py-20 md:px-10 md:py-32">
-      {/* Blueprint grid */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
+    <section className="relative overflow-hidden bg-dark-deep px-5 py-20 md:px-10 md:py-32">
       {/* Lime glow */}
       <div
         className="pointer-events-none absolute left-[10%] top-[30%] h-[500px] w-[500px] rounded-full opacity-[0.08] blur-[140px]"

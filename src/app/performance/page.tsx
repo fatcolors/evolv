@@ -4,8 +4,9 @@ import Footer from "@/components/Footer";
 import PerfHero from "@/components/performance/PerfHero";
 import PerfStatStrip from "@/components/performance/PerfStatStrip";
 import Powertrain from "@/components/performance/Powertrain";
-import Dynamics from "@/components/performance/Dynamics";
+import SensorArray from "@/components/tech/SensorArray";
 import Hydrodynamics from "@/components/performance/Hydrodynamics";
+import SafetySystems from "@/components/tech/SafetySystems";
 import PerfModes from "@/components/performance/PerfModes";
 import ProvenOnWater from "@/components/performance/ProvenOnWater";
 import PerfCTA from "@/components/performance/PerfCTA";
@@ -24,8 +25,9 @@ export default function PerformancePage() {
         <PerfHero />
         <PerfStatStrip />
         <Powertrain />
-        <Dynamics />
+        <SensorArray />
         <Hydrodynamics />
+        <SafetySystems />
         <PerfModes />
         <ProvenOnWater />
         <PerfCTA />

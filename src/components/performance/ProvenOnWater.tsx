@@ -8,7 +8,7 @@ const testResults = [
   {
     kicker: "TEMPERATURE",
     label: "THERMAL RANGE",
-    value: "—5",
+    value: "-5",
     separator: "TO",
     value2: "42",
     unit: "°C",

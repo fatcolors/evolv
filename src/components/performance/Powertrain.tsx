@@ -154,7 +154,7 @@ export default function Powertrain() {
                 alt="Modular power core"
                 fill
                 sizes="(max-width: 1024px) 100vw, 420px"
-                className="scale-125 object-contain object-center"
+                className="scale-150 object-contain object-center"
               />
               {/* Overlay label */}
               <div className="absolute right-4 top-1/2 flex -translate-y-1/2 flex-col gap-1 rounded-xl bg-white/90 px-3 py-2 backdrop-blur-sm">

@@ -5,6 +5,7 @@ import ExpHero from "@/components/experience/ExpHero";
 import ExpFeatures from "@/components/experience/ExpFeatures";
 import ExpPerformance from "@/components/experience/ExpPerformance";
 import ExpTech from "@/components/experience/ExpTech";
+import Dynamics from "@/components/performance/Dynamics";
 import ExpRide from "@/components/experience/ExpRide";
 import ExpCTA from "@/components/experience/ExpCTA";
 
@@ -23,6 +24,7 @@ export default function ExperiencePage() {
         <ExpFeatures />
         <ExpPerformance />
         <ExpTech />
+        <Dynamics />
         <ExpRide />
         <ExpCTA />
       </main>
