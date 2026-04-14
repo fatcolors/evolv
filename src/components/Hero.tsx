@@ -58,14 +58,14 @@ export default function Hero() {
   const acousticsCardY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   return (
-    <section ref={heroRef} className="relative w-full bg-white overflow-hidden pt-[100px] pb-[60px] lg:pt-[81px] lg:pb-0 lg:h-[830px]">
+    <section ref={heroRef} className="relative w-full bg-white overflow-hidden px-5 pt-[100px] pb-[60px] md:px-10 lg:pt-[81px] lg:pb-0 lg:h-[830px]">
       {/* ---- content grid ---- */}
       <motion.div
         style={{ y: contentY, scale: contentScale, opacity: contentOpacity }}
-        className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col lg:flex-row items-start"
+        className="relative z-10 mx-auto flex h-full max-w-[1360px] flex-col lg:flex-row items-start"
       >
         {/* ========== LEFT COLUMN ========== */}
-        <div className="flex flex-col justify-center px-6 sm:px-10 lg:pl-28 lg:pr-0 lg:pt-[100px] w-full lg:w-[60%] shrink-0 relative z-10">
+        <div className="flex flex-col justify-center lg:pt-[100px] w-full lg:w-[60%] shrink-0 relative z-10">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -99,10 +99,10 @@ export default function Hero() {
 
             {/* MOBILITY. skewed block */}
             <motion.div
-              initial={{ scaleX: 0, originX: 0 }}
-              animate={{ scaleX: 1 }}
+              initial={{ clipPath: "inset(-20% 120% -20% -20%)" }}
+              animate={{ clipPath: "inset(-20% -20% -20% -20%)" }}
               transition={{ duration: 0.7, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-1 inline-block origin-left"
+              className="mt-1 inline-block"
             >
               <div className="-skew-x-6 bg-dark px-4 py-1 sm:px-6 lg:px-8">
                 <span className="inline-block skew-x-6 font-outfit text-[48px] sm:text-[64px] lg:text-[96px] font-black leading-[0.9] tracking-[-1.5px] sm:tracking-[-2.5px] lg:tracking-[-3.84px] text-lime">

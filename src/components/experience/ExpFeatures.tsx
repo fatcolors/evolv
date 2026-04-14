@@ -80,21 +80,21 @@ export default function ExpFeatures() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }}
-              className="group relative bg-white p-10 transition-colors duration-500 hover:bg-stone-50 lg:p-12"
+              className="group relative bg-white p-10 transition-colors duration-500 hover:bg-dark lg:p-12"
             >
               <div className="flex items-start justify-between">
-                <div className="font-mono text-[11px] font-bold uppercase tracking-[2px] text-stone-400">
+                <div className="font-mono text-[11px] font-bold uppercase tracking-[2px] text-stone-400 transition-colors duration-500 group-hover:text-stone-500">
                   {f.num}
                 </div>
                 <div className="h-[8px] w-[8px] rounded-full bg-stone-200 transition-colors duration-500 group-hover:bg-lime" />
               </div>
-              <h3 className="mt-12 font-outfit text-[24px] font-extrabold leading-[1.15] tracking-[-0.5px] text-stone-900 lg:text-[26px]">
+              <h3 className="mt-12 font-outfit text-[24px] font-extrabold leading-[1.15] tracking-[-0.5px] text-stone-900 transition-colors duration-500 group-hover:text-white lg:text-[26px]">
                 {f.title}
               </h3>
-              <p className="mt-4 font-jakarta text-[15px] leading-[1.6] text-stone-500">
+              <p className="mt-4 font-jakarta text-[15px] leading-[1.6] text-stone-500 transition-colors duration-500 group-hover:text-stone-300">
                 {f.body}
               </p>
-              <div className="mt-10 h-px w-full bg-stone-100">
+              <div className="mt-10 h-px w-full bg-stone-100 transition-colors duration-500 group-hover:bg-white/10">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}

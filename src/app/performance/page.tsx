@@ -9,7 +9,7 @@ import Hydrodynamics from "@/components/performance/Hydrodynamics";
 import SafetySystems from "@/components/tech/SafetySystems";
 import PerfModes from "@/components/performance/PerfModes";
 import ProvenOnWater from "@/components/performance/ProvenOnWater";
-import PerfCTA from "@/components/performance/PerfCTA";
+import ExpFeatures from "@/components/experience/ExpFeatures";
 
 export const metadata: Metadata = {
   title: "Performance | EVOLV INC.",
@@ -30,7 +30,7 @@ export default function PerformancePage() {
         <SafetySystems />
         <PerfModes />
         <ProvenOnWater />
-        <PerfCTA />
+        <ExpFeatures />
       </main>
       <Footer />
     </>

@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { label: "FEATURES", href: "/" },
   { label: "PERFORMANCE", href: "/performance" },
-  { label: "EXPERIENCE", href: "/experience" },
 ];
 
 function LogoFull() {
@@ -69,7 +68,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 right-0 z-50"
+        className="fixed top-0 left-0 right-0 z-50 px-5 md:px-10"
         style={{
           backdropFilter: "none",
           WebkitBackdropFilter: "none",
@@ -81,7 +80,7 @@ export default function Navbar() {
           transition: "background-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease",
         }}
       >
-        <nav className="mx-auto flex h-[80px] max-w-[1280px] items-center justify-between px-8">
+        <nav className="mx-auto flex h-[80px] max-w-[1360px] items-center justify-between">
           {/* Left: Logo */}
           <a href="/" className="flex items-center">
             <LogoFull />

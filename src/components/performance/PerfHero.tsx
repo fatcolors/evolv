@@ -26,7 +26,7 @@ export default function PerfHero() {
         style={{ background: "#d0fc06" }}
       />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10">
+      <div className="relative z-10 mx-auto max-w-[1360px] px-5 md:px-10">
         <motion.div style={{ y }} className="flex flex-col items-center text-center">
           {/* Breadcrumb */}
           <motion.div
