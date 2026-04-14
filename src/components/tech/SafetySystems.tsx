@@ -1,12 +1,65 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import type { ReactNode } from "react";
 
-const systems = [
+const iconProps = {
+  width: 28,
+  height: 28,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+};
+
+const ShieldIcon = () => (
+  <svg {...iconProps}>
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>
+);
+
+const HomeIcon = () => (
+  <svg {...iconProps}>
+    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+    <polyline points="9 22 9 12 15 12 15 22" />
+  </svg>
+);
+
+const FishIcon = () => (
+  <svg {...iconProps}>
+    <path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z" />
+    <path d="M18 12v.5" />
+    <path d="M16 17.93a9.77 9.77 0 0 1 0-11.86" />
+    <path d="M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33" />
+    <path d="M10.46 7.26C10.2 5.88 9.17 4.24 8 3h5.8a2 2 0 0 1 1.98 1.67l.23 1.4" />
+    <path d="m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H9.5a5.96 5.96 0 0 0 1.49-3.98" />
+  </svg>
+);
+
+const RadioIcon = () => (
+  <svg {...iconProps}>
+    <path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9" />
+    <path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5" />
+    <circle cx="12" cy="12" r="2" />
+    <path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5" />
+    <path d="M19.1 4.9C23 8.8 23 15.1 19.1 19" />
+  </svg>
+);
+
+const systems: {
+  id: string;
+  Icon: () => ReactNode;
+  title: string;
+  desc: string;
+  metric: string;
+  metricLabel: string;
+}[] = [
   {
     id: "S1",
-    icon: "/icons/shield-icon.svg",
+    Icon: ShieldIcon,
     title: "COLLISION AVOIDANCE",
     desc: "Predictive hazard detection that intervenes before impact — even at full throttle.",
     metric: "360°",
@@ -14,7 +67,7 @@ const systems = [
   },
   {
     id: "S2",
-    icon: "/icons/recovery-icon.svg",
+    Icon: HomeIcon,
     title: "AUTO-RETURN HOME",
     desc: "Lose signal, fall off, or run low on charge — the hull pilots itself back to harbor.",
     metric: "12 km",
@@ -22,7 +75,7 @@ const systems = [
   },
   {
     id: "S3",
-    icon: "/icons/neural-nav-icon.svg",
+    Icon: FishIcon,
     title: "MARINE-LIFE AWARENESS",
     desc: "Thermal and sonar fusion identifies wildlife and automatically softens approach.",
     metric: "AI",
@@ -30,7 +83,7 @@ const systems = [
   },
   {
     id: "S4",
-    icon: "/icons/wifi-icon.svg",
+    Icon: RadioIcon,
     title: "EMERGENCY BEACON",
     desc: "One-touch SOS with live GPS broadcast to coastguard and paired devices.",
     metric: "< 2s",
@@ -96,8 +149,8 @@ export default function SafetySystems() {
               </span>
 
               {/* Icon */}
-              <div className="flex h-[64px] w-[64px] items-center justify-center rounded-2xl bg-lime/10 ring-1 ring-lime/20">
-                <Image src={s.icon} alt="" width={30} height={30} />
+              <div className="flex h-[64px] w-[64px] items-center justify-center rounded-2xl bg-lime/10 text-lime ring-1 ring-lime/20">
+                <s.Icon />
               </div>
 
               {/* Title */}

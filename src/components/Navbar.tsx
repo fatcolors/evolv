@@ -83,7 +83,7 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex h-[80px] max-w-[1280px] items-center justify-between px-8">
           {/* Left: Logo */}
-          <a href="#" className="flex items-center">
+          <a href="/" className="flex items-center">
             <LogoFull />
           </a>
 
