@@ -58,7 +58,7 @@ export default function Hero() {
   const acousticsCardY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   return (
-    <section ref={heroRef} className="relative w-full bg-white overflow-hidden px-5 pt-[100px] pb-[60px] md:px-10 lg:pt-[81px] lg:pb-0 lg:h-[830px]">
+    <section ref={heroRef} className="relative w-full bg-white overflow-hidden px-5 pt-[88px] pb-2 md:px-10 md:pt-[100px] md:pb-[60px] lg:pt-[81px] lg:pb-0 lg:h-[830px]">
       {/* ---- content grid ---- */}
       <motion.div
         style={{ y: contentY, scale: contentScale, opacity: contentOpacity }}
@@ -171,15 +171,15 @@ export default function Hero() {
           initial={{ opacity: 0, x: 100, scale: 1.05 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
-          className="relative mt-10 w-full lg:mt-0 lg:absolute lg:right-0 lg:top-[60px] lg:h-full lg:w-[58%]"
+          className="relative mt-4 w-full lg:mt-0 lg:absolute lg:right-0 lg:top-[60px] lg:h-full lg:w-[58%]"
         >
-          <div className="relative h-[400px] sm:h-[500px] lg:h-full w-full flex items-center justify-center lg:justify-end overflow-hidden bg-white">
+          <div className="relative h-[300px] sm:h-[440px] lg:h-full w-full flex items-center justify-center lg:justify-end overflow-hidden bg-white">
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="h-full w-full object-contain object-center lg:object-right scale-110 lg:scale-105"
+              className="h-full w-full object-contain object-center lg:object-right scale-[1.6] sm:scale-[1.4] lg:scale-105"
             >
               <source src="/images/hero-video.mp4" type="video/mp4" />
             </video>

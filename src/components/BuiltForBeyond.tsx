@@ -185,7 +185,7 @@ export default function BuiltForBeyond() {
 
                 {/* Right (desktop) / bottom (mobile): jet ski image */}
                 <motion.div
-                  className="relative h-[280px] w-full sm:h-[340px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[46%]"
+                  className="relative h-[300px] w-full sm:h-[360px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[46%]"
                   initial={{ x: 540 }}
                   animate={jetskiInView ? { x: 0 } : { x: 540 }}
                   transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
@@ -197,7 +197,7 @@ export default function BuiltForBeyond() {
                       fill
                       sizes="(max-width: 1024px) 100vw, 46vw"
                       quality={95}
-                      className="object-contain object-center lg:scale-125"
+                      className="object-contain object-right scale-110 lg:object-center lg:scale-125"
                     />
                   </div>
                 </motion.div>
