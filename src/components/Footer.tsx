@@ -96,7 +96,7 @@ export default function Footer() {
               Contact
             </h4>
             <p className="font-jakarta text-sm text-[#78716c] mb-4">
-              Inquiries: hello@evolv-maritime.com
+              hello@fatcolors.pl
             </p>
             <p className="font-jakarta text-sm text-[#78716c]">
               Stockholm, Sweden

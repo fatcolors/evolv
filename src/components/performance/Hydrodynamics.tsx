@@ -154,20 +154,44 @@ export default function Hydrodynamics() {
                     delay: 0.4 + i * 0.12,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className={`absolute ${c.pos} flex flex-col gap-1 rounded-xl bg-white/90 px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.08)] backdrop-blur-sm`}
+                  className={`group absolute ${c.pos} z-[3]`}
                 >
-                  <div className="flex items-center gap-2">
-                    <span className="h-[6px] w-[6px] rounded-full bg-lime" />
-                    <span className="font-mono text-[9px] uppercase tracking-[1.5px] text-[#888]">
-                      {c.label}
-                    </span>
+                  <div className="flex flex-col gap-1 rounded-xl bg-white/90 px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.08)] backdrop-blur-sm transition-colors duration-300 group-hover:bg-dark">
+                    <div className="flex items-center gap-2">
+                      <span className="h-[6px] w-[6px] rounded-full bg-lime" />
+                      <span className="font-mono text-[9px] uppercase tracking-[1.5px] text-[#888] transition-colors duration-300 group-hover:text-lime">
+                        {c.label}
+                      </span>
+                    </div>
+                    <div className="flex items-baseline gap-1">
+                      <span className="font-outfit text-[22px] font-black leading-none text-dark transition-colors duration-300 group-hover:text-white md:text-[26px]">
+                        {c.value}
+                      </span>
+                      <span className="font-outfit text-[11px] font-bold text-[#888] transition-colors duration-300 group-hover:text-white/60 md:text-[12px]">
+                        {c.unit}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-baseline gap-1">
-                    <span className="font-outfit text-[22px] font-black leading-none text-dark md:text-[26px]">
-                      {c.value}
-                    </span>
-                    <span className="font-outfit text-[11px] font-bold text-[#888] md:text-[12px]">
-                      {c.unit}
+
+                  {/* Connector line + pulsing dot */}
+                  <div
+                    className={`pointer-events-none absolute top-1/2 flex h-[12px] w-[160px] -translate-y-1/2 items-center ${
+                      c.side === "left" ? "left-full" : "right-full"
+                    }`}
+                  >
+                    <div
+                      className={`h-[2px] w-full scale-x-0 bg-lime transition-transform duration-500 ease-out group-hover:scale-x-100 ${
+                        c.side === "left" ? "origin-left" : "origin-right"
+                      }`}
+                    />
+                    <span
+                      className={`absolute top-1/2 h-[10px] w-[10px] -translate-y-1/2 rounded-full bg-lime opacity-0 transition-opacity delay-500 duration-300 group-hover:opacity-100 ${
+                        c.side === "left"
+                          ? "right-0 translate-x-1/2"
+                          : "left-0 -translate-x-1/2"
+                      }`}
+                    >
+                      <span className="absolute inset-0 animate-ping rounded-full bg-lime" />
                     </span>
                   </div>
                 </motion.div>

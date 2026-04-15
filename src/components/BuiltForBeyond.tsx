@@ -90,14 +90,6 @@ export default function BuiltForBeyond() {
   const jetskiCardRef = useRef<HTMLDivElement>(null);
   const jetskiInView = useInView(jetskiCardRef, { once: true, amount: 0.3 });
 
-  /* Scroll-linked parallax on the scooter inside the acoustic card */
-  const { scrollYProgress: jetskiProgress } = useScroll({
-    target: jetskiCardRef,
-    offset: ["start end", "end start"],
-  });
-  const scooterScale = useTransform(jetskiProgress, [0, 0.5, 1], [0.95, 1.08, 1]);
-  const scooterX = useTransform(jetskiProgress, [0, 1], ["3%", "-6%"]);
-
   const unitsRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: unitsProgress } = useScroll({
     target: unitsRef,
@@ -164,7 +156,7 @@ export default function BuiltForBeyond() {
             >
               <div ref={jetskiCardRef} className="relative flex h-full flex-col lg:flex-row">
                 {/* Left: text content */}
-                <div className="relative z-10 flex w-full shrink-0 flex-col justify-between p-8 md:p-10 lg:w-[55%]">
+                <div className="relative z-10 flex w-full shrink-0 flex-col justify-between p-8 md:p-10 lg:w-[52%]">
                   {/* Top */}
                   <div>
                     <span className="mb-4 inline-block rounded-full bg-[#d0fc06] px-5 py-2 font-jakarta text-[14px] font-extrabold uppercase tracking-[1px] text-[#2d2f2f]">
@@ -193,24 +185,21 @@ export default function BuiltForBeyond() {
 
                 {/* Right (desktop) / bottom (mobile): jet ski image */}
                 <motion.div
-                  className="relative h-[300px] w-full sm:h-[360px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[524px]"
+                  className="relative h-[280px] w-full sm:h-[340px] lg:absolute lg:right-0 lg:top-0 lg:h-full lg:w-[46%]"
                   initial={{ x: 540 }}
                   animate={jetskiInView ? { x: 0 } : { x: 540 }}
                   transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
                 >
-                  <motion.div
-                    style={{ scale: scooterScale, x: scooterX }}
-                    className="relative h-full w-full"
-                  >
+                  <div className="relative h-full w-full">
                     <Image
                       src="/images/scooter.png"
                       alt="Jet ski"
                       fill
-                      sizes="524px"
+                      sizes="(max-width: 1024px) 100vw, 46vw"
                       quality={95}
-                      className="object-contain object-center"
+                      className="object-contain object-center lg:scale-125"
                     />
-                  </motion.div>
+                  </div>
                 </motion.div>
               </div>
             </BentoCard>

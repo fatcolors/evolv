@@ -32,8 +32,6 @@ export default function Home() {
           <div className="lg:[@media(min-height:1200px)]:sticky lg:[@media(min-height:1200px)]:top-0 lg:[@media(min-height:1200px)]:z-30">
             <BuiltForBeyond />
           </div>
-          {/* Spacer that gives the last sticky child its own sticky range */}
-          <div className="hidden h-screen lg:[@media(min-height:1200px)]:block" aria-hidden />
         </div>
         <Newsletter />
       </main>

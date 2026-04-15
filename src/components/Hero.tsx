@@ -134,7 +134,7 @@ export default function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="group rounded-full bg-lime px-10 py-5 font-jakarta text-[16px] font-extrabold uppercase tracking-[1px] text-dark shadow-[0_0_24px_rgba(208,252,6,0.45)] transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(208,252,6,0.7)]"
+              className="group rounded-full bg-lime px-10 py-5 font-jakarta text-[16px] font-extrabold uppercase tracking-[1px] text-dark shadow-[0_0_24px_rgba(208,252,6,0.45)] transition-colors duration-300 hover:bg-dark hover:text-lime hover:shadow-none"
             >
               <span className="flex items-center gap-2">
                 RESERVE NOW
@@ -158,7 +158,8 @@ export default function Hero() {
             <motion.button
               whileHover={{ borderColor: "#d0fc06" }}
               whileTap={{ scale: 0.97 }}
-              className="rounded-full border-2 border-[#f2f2f2] px-6 py-5 font-jakarta text-[16px] font-extrabold uppercase tracking-[1px] text-dark transition-colors duration-300"
+              transition={{ duration: 0 }}
+              className="rounded-full border-2 border-[#f2f2f2] px-6 py-5 font-jakarta text-[16px] font-extrabold uppercase tracking-[1px] text-dark"
             >
               VIEW SPECS
             </motion.button>
