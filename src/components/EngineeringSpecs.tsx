@@ -319,18 +319,18 @@ export default function EngineeringSpecs() {
             transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="relative col-span-1 h-[360px] overflow-hidden rounded-[28px] sm:col-span-2 md:h-[400px] md:rounded-[40px] lg:col-span-4"
           >
-            {/* Background image with parallax */}
+            {/* Background video with parallax */}
             <motion.div
               className="absolute inset-[-10%] h-[120%] w-[120%]"
               style={{ y: parallaxY }}
             >
-              <Image
-                src="/images/specs-cockpit-overlay2.png"
-                alt="Cockpit specifications"
-                fill
-                quality={95}
-                className="object-cover"
-                sizes="100vw"
+              <video
+                src="/images/nav-section-bg.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover"
               />
             </motion.div>
 

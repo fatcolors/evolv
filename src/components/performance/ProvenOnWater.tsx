@@ -50,7 +50,7 @@ export default function ProvenOnWater() {
       {/* Parallax background */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 scale-110">
         <Image
-          src="/images/watercraft-bg2.png"
+          src="/images/tested-proven-background.png"
           alt=""
           fill
           className="object-cover opacity-30"
