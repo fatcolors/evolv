@@ -57,9 +57,9 @@ export default function PerfHero() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 whitespace-nowrap font-outfit text-[56px] font-black leading-[0.88] tracking-[-2px] text-white sm:text-[72px] lg:text-[108px] lg:tracking-[-4px]"
+            className="mt-8 font-outfit text-[56px] font-black leading-[0.88] tracking-[-2px] text-white sm:whitespace-nowrap sm:text-[72px] lg:text-[108px] lg:tracking-[-4px]"
           >
-            UNLEASH <span className="text-white/25">THE APEX.</span>
+            UNLEASH<br className="sm:hidden" /> <span className="text-white/25">THE APEX.</span>
           </motion.h1>
 
           {/* Description */}
